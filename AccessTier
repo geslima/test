@@ -1,0 +1,11 @@
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName = ""
+
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+
+Write-Output $blob.AccessTier
